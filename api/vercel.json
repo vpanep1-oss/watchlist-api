@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/watchlists.js": {
+      "maxDuration": 30
+    }
+  }
+}
