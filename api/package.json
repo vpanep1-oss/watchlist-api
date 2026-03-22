@@ -1,5 +1,8 @@
 {
   "name": "watchlist-api",
   "version": "1.0.0",
-  "dependencies": {}
+  "type": "commonjs",
+  "dependencies": {
+    "@vercel/node": "^3.1.1"
+  }
 }
