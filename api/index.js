@@ -1,5 +1,13 @@
-export default async function (req, res) {
+const { VercelRequestEvent, VercelResponse } = require('@vercel/node');
+
+module.exports = (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
   
   const watchlists = [
     {
@@ -14,16 +22,16 @@ export default async function (req, res) {
       title: "Loki (Disney+)",
       service: "Disney+",
       poster: "https://image.tmdb.org/t/p/w500/kf4Xqe9Kq9VxpP98tR1XnfPM3.jpg",
-      deepLink: "rokudeep linking://disneyplus.com/watch/5e3b0a8b-1234-1234-1234-123456789abc"
+      deepLink: "rokudeepLinking://disneyplus.com/watch/5e3b0a8b-1234-1234-1234-123456789abc"
     },
     {
       id: 3,
       title: "The Office (Netflix)",
-      service: "Netflix", 
+      service: "Netflix",
       poster: "https://image.tmdb.org/t/p/w500/8aWfpLhWXhP2qsNbbfzqRR9p5l9.jpg",
-      deepLink: "rokudeep linking://netflix.com/watch/70136121"
+      deepLink: "rokudeepLinking://netflix.com/watch/70136121"
     }
   ];
   
   res.json(watchlists);
-}
+};
